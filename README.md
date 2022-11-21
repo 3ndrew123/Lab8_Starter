@@ -1,4 +1,7 @@
 # Lab 8 - Starter
+
+Andrew Nguyen
+
 1. Within a Github action that runs whenever code is pushed
 This is the best option to fit your automated tests in the Recipe project development pipeline because using this option will restrict more human error from occuring when we want to run our tests. This will be the option that makes it easiest
 for developers.
