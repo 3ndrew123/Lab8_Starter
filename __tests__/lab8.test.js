@@ -116,7 +116,7 @@ describe('Basic user flow for Website', () => {
     // At this point he item 'cart' in localStorage should be 
     // '[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]', check to make sure it is
     let cart = '[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]'
-    let localStorage = await page.evaluate(() => localStorage.getItem("cart"));
+    let localStorage = await page.evaluate(() => localStorage.getItem('cart'));
     expect(localStorage).toBe(cart);
   });
 
@@ -129,8 +129,8 @@ describe('Basic user flow for Website', () => {
     // Once you have, check to make sure that #cart-count is now 0
     const product_items = await page.$$('product-item');
     for (let i = 0; i < product_items.length; i++) {
-      const shadowRoot = await product_items[i].getProperty("shadowRoot");
-      let button = await shadowRoot.$("button");
+      const shadowRoot = await product_items[i].getProperty('shadowRoot');
+      let button = await shadowRoot.$('button');
       await button.click();
     }
     const cartCount = await page.$('#cart-count');
@@ -151,16 +151,16 @@ describe('Basic user flow for Website', () => {
     await page.reload();
     const product_items = await page.$$('product-item');
     for (let i = 0; i < product_items.length; i++) {
-      const shadowRoot = await product_items[i].getProperty("shadowRoot");
-      let button = await shadowRoot.$("button");
-      let innerText = await button.getProperty("innerText");
+      const shadowRoot = await product_items[i].getProperty('shadowRoot');
+      let button = await shadowRoot.$('button');
+      let innerText = await button.getProperty('innerText');
       let text = await innerText.jsonValue();
-      expect(text).toBe("Add to Cart");
+      expect(text).toBe('Add to Cart');
     }
-    const cartCount = await page.$("#cart-count");
-    let carCountInner = await cartCount.getProperty("innerText");
+    const cartCount = await page.$('#cart-count');
+    let carCountInner = await cartCount.getProperty('innerText');
     let carCountText = await carCountInner.jsonValue();
-    expect(carCountText).toBe("0");
+    expect(carCountText).toBe('0');
   }, 10000);
 
   // Checking to make sure that localStorage for the cart is as we'd expect for the
@@ -169,8 +169,8 @@ describe('Basic user flow for Website', () => {
     console.log('Checking the localStorage...');
     // TODO - Step 8
     // At this point he item 'cart' in localStorage should be '[]', check to make sure it is
-    let cart = "[]";
-    let localStorage = await page.evaluate(() => localStorage.getItem("cart"));
+    let cart = '[]';
+    let localStorage = await page.evaluate(() => localStorage.getItem('cart'));
     expect(localStorage).toBe(cart);
   });
 });
