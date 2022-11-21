@@ -37,7 +37,6 @@ describe('Basic user flow for Website', () => {
       if (plainValue.price.length == 0) { allArePopulated = false; }
       if (plainValue.image.length == 0) { allArePopulated = false; }
       // Expect allArePopulated to still be true
-      console.log(i);
       expect(allArePopulated).toBe(true);
     }
 
@@ -77,7 +76,6 @@ describe('Basic user flow for Website', () => {
     // Check to see if the innerText of #cart-count is 20
     const product_items = await page.$$('product-item');
     for (let i = 0; i < product_items.length; i++) {
-      console.log(`Checking product item ${i+1}/${product_items.length}`);
       const shadowRoot = await product_items[i].getProperty('shadowRoot');
       const button = await shadowRoot.$('button');
       await button.click();

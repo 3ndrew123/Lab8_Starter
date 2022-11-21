@@ -26,11 +26,11 @@ test('awnguyen@ucsd.edu is a valid email', () => {
 test('3ndrew123@gmail.com is a valid email', () => {
     expect(functions.isEmail('3ndrew123@gmail.com')).toBe(true);
 });
-test('a is not a valid email', () => {
-    expect(functions.isEmail('a')).toBe(false);
+test('a@a is not a valid email', () => {
+    expect(functions.isEmail('a@a')).toBe(false);
 });
-test('b is not a valid email', () => {
-    expect(functions.isEmail('b')).toBe(false);
+test('b@b. is not a valid email', () => {
+    expect(functions.isEmail('b@b.')).toBe(false);
 });
 test('an081302 is a string password', () => {
     expect(functions.isStrongPassword('an081302')).toBe(true);
@@ -50,10 +50,10 @@ test('11/21/2022 is a valid date', () => {
 test('11/22/2022 is a valid date', () => {
     expect(functions.isDate('11/22/2022')).toBe(true);
 });
-test('z is not a valid date', () => {
+test('z11/21/2022 is not a valid date', () => {
     expect(functions.isDate('z')).toBe(false);
 });
-test('x is not a valid date', () => {
+test('x11/21/2022 is not a valid date', () => {
     expect(functions.isDate('x')).toBe(false);
 });
 test('CCCCFF is a valid hex color', () => {
